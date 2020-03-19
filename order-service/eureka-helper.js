@@ -8,8 +8,8 @@ exports.registerWithEureka = function (appName, PORT) {
   const client = new Eureka({
     instance: {
       app: appName,
-      hostName: hostName,
       instanceId: appName,
+      hostName: hostName,
       ipAddr: ipAddr,
       port: {
         '$': PORT,
@@ -27,14 +27,14 @@ exports.registerWithEureka = function (appName, PORT) {
       port: eurekaPort,
       servicePath: '/eureka/apps',
       maxRetries: 10,
-      requestRetryDelay: 2000,
+      requestRetryDelay: 3000,
     },
   })
 
   client.logger.level('debug')
 
   client.start(error => {
-    console.log(error || "user service registered")
+    console.log(error || "cart service registered")
   });
 
 
