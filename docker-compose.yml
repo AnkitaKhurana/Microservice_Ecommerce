@@ -1,11 +1,18 @@
 version: "3"
 services:
+  
+  eureka:
+    image: steeltoeoss/eureka-server
+    ports: 
+      - "8761:8761"
   user:
     build: "./user-service"
     ports:
       - "3001:3001"
     depends_on:
-      - eureka
+      - eureka    
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=eureka
 
   products:
     build: "./products-service"
@@ -16,6 +23,7 @@ services:
       - eureka
     environment:
       - MONGO_DB_URI=mongodb://db/microservices
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=eureka
 
   cart:
     build: "./cart-service"
@@ -27,6 +35,7 @@ services:
       - eureka
     environment:
       - MONGO_DB_URI=mongodb://db/microservices
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=eureka
 
   orders:
     build: "./order-service"
@@ -38,6 +47,7 @@ services:
       - eureka
     environment:
       - MONGO_DB_URI=mongodb://db/microservices
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=eureka
 
   payment:
     build: "./payment-service"
@@ -46,6 +56,8 @@ services:
     depends_on:
       - rabbitmq
       - eureka
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "eureka"
 
   delivery:
     build: "./delivery-service"
@@ -54,6 +66,8 @@ services:
     depends_on:
       - rabbitmq   
       - eureka
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "eureka"  
 
   db:
     image: mongo
@@ -71,10 +85,6 @@ services:
     depends_on: 
       - eureka 
   
-  eureka:
-    image: steeltoeoss/eureka-server
-    ports: 
-      - "8761:8761"
       
   nginx:
     image: nginx:latest
@@ -97,3 +107,5 @@ services:
       dockerfile: ApiGateway/Dockerfile    
     ports:
       - 62586:62586
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "eureka"   
