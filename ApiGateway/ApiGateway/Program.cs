@@ -25,6 +25,7 @@ namespace ApiGateway
 
         public static IWebHost BuildWebHost(string[] args)
         {
+            Console.WriteLine("*************************************");
             return WebHost.CreateDefaultBuilder(args)
                 .UseUrls("http://localhost:62586")
                 .ConfigureAppConfiguration((hostingContext, config) =>
