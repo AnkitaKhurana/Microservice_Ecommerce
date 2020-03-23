@@ -8,7 +8,7 @@
       "Key": "user",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "user",
           "Port": "3001"
         }
       ]
@@ -21,7 +21,7 @@
       "Key": "user1",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "user",
           "Port": "3001"
         }
       ]
@@ -34,7 +34,7 @@
       "Key": "product",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "products",
           "Port": "3000"
         }
       ]
@@ -47,7 +47,7 @@
       "Key": "product1",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "products",
           "Port": "3000"
         }
       ]
@@ -60,7 +60,7 @@
       "Key": "cart",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "cart",
           "Port": "3003"
         }
       ]
@@ -73,7 +73,7 @@
       "Key": "cart1",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "cart",
           "Port": "3003"
         }
       ]
@@ -86,7 +86,7 @@
       "Key": "order",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "orders",
           "Port": "3004"
         }
       ]
@@ -99,7 +99,7 @@
       "Key": "order1",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "orders",
           "Port": "3004"
         }
       ]
@@ -112,7 +112,7 @@
       "Key": "payment",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "payment",
           "Port": "3005"
         }
       ]
@@ -125,7 +125,7 @@
       "Key": "payment1",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "payment",
           "Port": "3005"
         }
       ]
@@ -138,7 +138,7 @@
       "Key": "delivery",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "delivery",
           "Port": "3006"
         }
       ]
@@ -151,7 +151,7 @@
       "Key": "delivery1",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "delivery",
           "Port": "3006"
         }
       ]
@@ -171,7 +171,7 @@
     "UseServiceDiscovery": true,
     "ServiceDiscoveryProvider": {
       "Type": "Eureka",
-      "Host": "localhost",
+      "Host": "eureka",
       "Port": "8761"
     }
   }

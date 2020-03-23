@@ -99,6 +99,7 @@ services:
       - orders
       - payment
       - delivery
+      - apigateway
       
   apigateway:
     image: apigateway
@@ -106,6 +107,6 @@ services:
       context: ./ApiGateway
       dockerfile: ApiGateway/Dockerfile    
     ports:
-      - 62586:62586
+      - "62586:62586"
     environment:
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "eureka"   
