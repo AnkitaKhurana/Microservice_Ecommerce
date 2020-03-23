@@ -6,15 +6,15 @@ const logger = require('../../logger');
 async function findProductDetails(productId) {
     return axios({
         method: 'get',
-        url: 'http://localhost:3000/product/' + productId
+        url: 'http://products:3000/product/' + productId
 
     });
 }
 
-function usernameDoesExist(name) {
+async function usernameDoesExist(name) {
     return axios({
         method: 'get',
-        url: 'http://localhost:3001/user',
+        url: 'http://user:3001/user',
         data: {
             username: name
         }
@@ -22,7 +22,7 @@ function usernameDoesExist(name) {
 
 }
 
-let getCartDetails = (req, res, next) => {
+let getCartDetails = (req, res, next) =>  {
     Cart.find({ username: req.params['username'] }).then(c => {
         cart = c[0];
         if (!cart) {
@@ -42,6 +42,7 @@ let getCartDetails = (req, res, next) => {
 
             }).catch(err => {
                 logger.info(err);
+                console.log(err);
                 res.status(404).send('No Such User found');
             });
         }
