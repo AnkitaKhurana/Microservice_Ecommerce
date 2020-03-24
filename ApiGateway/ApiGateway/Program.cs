@@ -25,11 +25,11 @@ namespace ApiGateway
 
         public static IWebHost BuildWebHost(string[] args)
         {
-            Console.WriteLine("*************************************");
             return WebHost.CreateDefaultBuilder(args)
-                .UseUrls("http://localhost:62586")
+                .UseUrls("http://0.0.0.0:62586")
                 .ConfigureAppConfiguration((hostingContext, config) =>
                 {
+                   
                     config
                         .SetBasePath(hostingContext.HostingEnvironment.ContentRootPath)
                         .AddJsonFile("appsettings.json", true, true)
